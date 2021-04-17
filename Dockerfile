@@ -28,4 +28,6 @@ RUN set -xe \
     && rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/*
 RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd && apk del libpng-dev
 
-CMD ["php" "-a"]
+ENTRYPOINT ["docker-php-entrypoint"]
+
+CMD ["php", "-a"]
